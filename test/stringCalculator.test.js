@@ -19,4 +19,9 @@ describe("String Calculator Addition", () => {
         expect(add("1,2,3,4")).toBe(10);
         expect(add("5,6,7,8,9")).toBe(35);
     })
+
+    test('should handle new line as delimeter', () => {
+        expect(add("1\n2,3")).toBe(6);
+        expect(add("1\n2\n3")).toBe(6);
+    })
 });
