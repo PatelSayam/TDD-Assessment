@@ -29,4 +29,10 @@ describe("String Calculator Addition", () => {
         expect(add("//;\n1;2")).toBe(3);
         expect(add("//;\n3;4\n5;6")).toBe(18);  
     })
+
+    test('should throw error for negative numbers', () => {
+        expect(add("-2,-17")).toThrow("negative numbers are not allowed: -2,-17")
+        expect(add("1,-4,-7, 8")).toThrow("negative numbers are not allowed: -4,-7")
+    })
+
 });
