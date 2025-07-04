@@ -17,6 +17,6 @@ describe("String Calculator Addition", () => {
 
     test('should return sum for unknown amount of numbers', () => {
         expect(add("1,2,3,4")).toBe(10);
-        expect(add("5,6,7,8")).toBe(26);
+        expect(add("5,6,7,8,9")).toBe(35);
     })
 });
