@@ -6,4 +6,8 @@ describe("String Calculator Addition", () => {
         expect(add("")).toBe(0);
     })
 
+    test('should return number itself for single input', () => {
+        expect(add("1")).toBe(1);
+    })
+
 });
