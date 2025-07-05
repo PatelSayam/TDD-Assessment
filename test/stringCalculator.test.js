@@ -53,4 +53,11 @@ describe("String Calculator Addition", () => {
         expect(add("//[*][%]\n1*2%3")).toBe(6);
         expect(add("//[#][%][*]\n3#5%3")).toBe(11);
     })
+
+    test('Should handle Multiple delimiter having more than one length', () => {
+        expect(add("//[***][%%%]\n1***2%%%3")).toBe(6);
+        expect(add("//[**][##]\n1##2**3##1")).toBe(7);
+    })
+
+    
 });
