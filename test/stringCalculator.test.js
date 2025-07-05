@@ -1,6 +1,6 @@
 const { add } = require('../src/stringCalculator');
 
-describe("String Calculator Addition", () => {
+describe("Simple Addition", () => {
 
     test('should return 0 on empty string', () => {
         expect(add("")).toBe(0);
@@ -20,16 +20,6 @@ describe("String Calculator Addition", () => {
         expect(add("5,6,7,8,9")).toBe(35);
     })
 
-    test('should handle new line as delimeter', () => {
-        expect(add("1\n2,3")).toBe(6);
-        expect(add("1\n2\n3")).toBe(6);
-    })
-
-    test('should handle custome delimeters', () => {
-        expect(add("//;\n1;2")).toBe(3);
-        expect(add("//;\n3;4\n5;6")).toBe(18);  
-    })
-
     test('should throw error for negative numbers', () => {
         expect(() => add("-2,-17")).toThrow("negative numbers are not allowed -2,-17")
         expect(() => add("1,-4,-7, 8")).toThrow("negative numbers are not allowed -4,-7")
@@ -39,6 +29,20 @@ describe("String Calculator Addition", () => {
         expect(add("1000, 2")).toBe(1002);
         expect(add("2999, 40, 17")).toBe(57);
         expect(add("4466, 3388, 9999")).toBe(0);        
+    })            
+    
+});
+
+describe('Addition With Delimiters', () => {
+
+    test('should handle new line as delimeter', () => {
+        expect(add("1\n2,3")).toBe(6);
+        expect(add("1\n2\n3")).toBe(6);
+    })
+
+    test('should handle custome delimeters', () => {
+        expect(add("//;\n1;2")).toBe(3);
+        expect(add("//;\n3;4\n5;6")).toBe(18);  
     })
 
     test('should handle delimiter having more than one character',() => {
@@ -59,5 +63,4 @@ describe("String Calculator Addition", () => {
         expect(add("//[**][##]\n1##2**3##1")).toBe(7);
     })
 
-    
-});
+})
