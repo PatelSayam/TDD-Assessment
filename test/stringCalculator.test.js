@@ -40,4 +40,12 @@ describe("String Calculator Addition", () => {
         expect(add("2999, 40, 17")).toBe(57);
         expect(add("4466, 3388, 9999")).toBe(0);        
     })
+
+    test('should handle delimiter having more than one character',() => {
+        expect(add("//[***]\n1***2***3")).toBe(6);
+        expect(add("//[!!]\n4!!5!!6")).toBe(15);
+        expect(add("//[##]\n2##1001##3")).toBe(5);
+        expect(() => add("//[!!]\n1!!-2!!-3")).toThrow("Negative numbers are not allowed -2,-3");
+        expect(add("//[@@]\n")).toBe(0);
+     })
 });
