@@ -45,7 +45,7 @@ describe("String Calculator Addition", () => {
         expect(add("//[***]\n1***2***3")).toBe(6);
         expect(add("//[!!]\n4!!5!!6")).toBe(15);
         expect(add("//[##]\n2##1001##3")).toBe(5);
-        expect(() => add("//[!!]\n1!!-2!!-3")).toThrow("Negative numbers are not allowed -2,-3");
+        expect(() => add("//[!!]\n1!!-2!!-3")).toThrow("negative numbers are not allowed -2,-3");
         expect(add("//[@@]\n")).toBe(0);
      })
 });
