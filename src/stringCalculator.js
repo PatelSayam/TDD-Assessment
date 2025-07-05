@@ -4,8 +4,13 @@ function add (str) {
 
     // default delimiters
     let delimiters = [",", "\n"];
-
-    if(str.startsWith("//")) {
+    if(str.startsWith("//[")) {
+        let endIndex = str.indexOf("]");
+        let delimeter = str.substring(3, endIndex);
+        delimiters.push(delimeter);
+        str = str.substring(endIndex+2);
+    } 
+    else if(str.startsWith("//")) {
         let delimeter = str.substring(2,3);
         delimiters.push(delimeter);
         str = str.substring(4);
