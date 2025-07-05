@@ -47,5 +47,10 @@ describe("String Calculator Addition", () => {
         expect(add("//[##]\n2##1001##3")).toBe(5);
         expect(() => add("//[!!]\n1!!-2!!-3")).toThrow("negative numbers are not allowed -2,-3");
         expect(add("//[@@]\n")).toBe(0);
-     })
+    })
+
+    test('Should handle multiple delimiter having one length', () => {
+        expect(add("//[*][%]\n1*2%3")).toBe(6);
+        expect(add("//[#][%][*]\n3#5%3")).toBe(11);
+    })
 });
