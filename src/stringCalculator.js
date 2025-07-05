@@ -4,11 +4,19 @@ function add (str) {
 
     // default delimiters
     let delimiters = [",", "\n"];
+
     if(str.startsWith("//[")) {
-        let endIndex = str.indexOf("]");
-        let delimeter = str.substring(3, endIndex);
-        delimiters.push(delimeter);
-        str = str.substring(endIndex+2);
+
+        let endlineIndex = str.indexOf("\n");
+        let delimiterPart = str.substring(2, endlineIndex);
+        const matches = delimiterPart.match(/\[([^\]]+)\]/g);
+
+        if(matches) {
+            const multipleDelimiters = matches.map(delim => delim.slice(1,-1));
+            delimiters.push(multipleDelimiters);
+        }
+        
+        str = str.substring(endlineIndex + 1);
     } 
     else if(str.startsWith("//")) {
         let delimeter = str.substring(2,3);
