@@ -35,4 +35,9 @@ describe("String Calculator Addition", () => {
         expect(() => add("1,-4,-7, 8")).toThrow("negative numbers are not allowed -4,-7")
     })
 
+    test('Number bigger than 1000 should be ignored', () => {
+        expect(add("1000, 2")).toBe(1002);
+        expect(add("2999, 40, 17")).toBe(57);
+        expect(add("4466, 3388, 9999")).toBe(0);        
+    })
 });
